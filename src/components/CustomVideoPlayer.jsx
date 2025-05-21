@@ -1,45 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import videoSrc from "../assets/introducing-ai-melody-products.mp4";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 function CustomVideoPlayer() {
-  const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const handlePlayPause = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
-  const handlePlay = () => setIsPlaying(true);
-  const handlePause = () => setIsPlaying(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          videoRef.current && videoRef.current.play();
-        } else {
-          videoRef.current && videoRef.current.pause();
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-    return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
-      }
-    };
-  }, []);
 
   return (
     <motion.div
@@ -56,53 +19,34 @@ function CustomVideoPlayer() {
       transition={{ duration: 0.7, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
     >
-      <video
-        ref={videoRef}
-        src={videoSrc}
+      <div
         style={{
           width: "100%",
-          height: "auto",
+          aspectRatio: "16 / 9",
           borderRadius: "18px",
+          overflow: "hidden",
           boxShadow: "0 2px 12px rgba(0,0,0,0.10)",
-          display: "block",
           background: "#000"
         }}
-        onPlay={handlePlay}
-        onPause={handlePause}
-        controls={false}
-        playsInline
-        muted
-      />
-      <button
-        onClick={handlePlayPause}
-        style={{
-          position: "absolute",
-          bottom: 16,
-          right: 16,
-          background: "rgba(0,0,0,0.6)",
-          border: "none",
-          borderRadius: "50%",
-          width: 48,
-          height: 48,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          zIndex: 2
-        }}
-        aria-label={isPlaying ? "Pause video" : "Play video"}
       >
-        {isPlaying ? (
-          <svg width="28" height="28" viewBox="0 0 40 40" fill="white">
-            <rect x="10" y="8" width="6" height="24" rx="2" />
-            <rect x="24" y="8" width="6" height="24" rx="2" />
-          </svg>
-        ) : (
-          <svg width="28" height="28" viewBox="0 0 40 40" fill="white">
-            <polygon points="12,8 32,20 12,32" />
-          </svg>
-        )}
-      </button>
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/2Vqg75zNz-U?rel=0&modestbranding=1"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          style={{
+            width: "100%",
+            height: "100%",
+            border: "none",
+            borderRadius: "18px",
+            display: "block",
+            background: "#000"
+          }}
+        />
+      </div>
     </motion.div>
   );
 }
