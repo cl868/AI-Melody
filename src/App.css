@@ -1898,3 +1898,240 @@ select.signup-form {
   /* Optionally, you can keep the same underline for focus/active for consistency: */
   border-bottom: 2px solid #e53935;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Navbar Mobile Styles */
+  .navbar {
+    padding: 0.5rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .navbar-logo-left {
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .navbar-tabs {
+    display: none; /* Hide tabs on mobile - consider adding a mobile menu */
+    width: 100%;
+    padding: 1rem 0;
+    margin: 0;
+    gap: 1rem;
+  }
+
+  .navbar-icons {
+    margin-left: auto;
+  }
+
+  /* Hero Section Mobile Styles */
+  .hero-section {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 0 1rem;
+  }
+
+  .main-hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    margin: 1rem 0;
+  }
+
+  .main-hero-video {
+    margin: 1rem auto;
+    border-radius: 12px;
+  }
+
+  /* Product Overview Mobile Styles */
+  .product-overview-section {
+    padding: 2rem 1rem;
+  }
+
+  .product-overview-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .product-overview-row {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+  }
+
+  .product-overview-row.reverse {
+    flex-direction: column;
+  }
+
+  .product-overview-image-col {
+    width: 100%;
+  }
+
+  .product-overview-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .product-overview-info {
+    width: 100%;
+    padding: 0;
+  }
+
+  .product-overview-name {
+    font-size: 1.5rem;
+  }
+
+  .product-overview-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Use Cases Section Mobile Styles */
+  .use-cases-section {
+    padding: 2rem 1rem;
+  }
+
+  .use-cases-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .use-cases-title {
+    font-size: 1.8rem;
+  }
+
+  .use-cases-subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 0.5rem 2rem;
+  }
+
+  .navbar-tabs {
+    gap: 3rem;
+  }
+
+  .main-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .product-overview-row {
+    gap: 2rem;
+  }
+
+  .use-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.hamburger.open {
+  background: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  padding: 6rem 2rem 2rem;
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-item {
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu-item.active {
+  color: #e53935;
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-action {
+    display: none;
+  }
+}
