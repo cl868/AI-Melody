@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import calliopeImg from "../assets/calliope-ui.png";
 import vocatImg from "../assets/VOCAT.png";
 import vocaiImg from "../assets/VOCAI.png";
-import vocopImg from "../assets/vocop.png";
+import vocopImg from "../assets/VOCOP.png";
 import AnimatedSection from "../UI/AnimatedSection";
 import "../App.css";
 import { motion } from "framer-motion";
