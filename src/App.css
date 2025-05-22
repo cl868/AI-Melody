@@ -389,6 +389,8 @@ h1, h2, h3, h4, h5, h6, p, span, div {
   background: #fff;
   padding: 4rem 2rem;
   text-align: center;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .use-cases-title {
@@ -1829,8 +1831,13 @@ select.signup-form {
 
 .signup-form {
   width: 100%;
-  max-width: 800px;   /* Or your preferred max width */
+  max-width: 800px;
   margin: 0 auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signup-input {
@@ -1901,6 +1908,45 @@ select.signup-form {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  /* Add consistent margins for all main sections */
+  .hero-section,
+  .product-overview-section,
+  .use-cases-section,
+  .vostco-marketplace-section,
+  .team-section,
+  .contact-section,
+  .video-section,
+  .vocal-ai-training-section {
+    margin: 0 20px;
+  }
+
+  /* Ensure content within sections respects the margins */
+  .hero-content,
+  .product-overview-row,
+  .use-cases-grid,
+  .vostco-marketplace-grid,
+  .team-mission,
+  .contact-form,
+  .video-container,
+  .vocal-ai-training-steps {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Adjust padding to work with margins */
+  .hero-section,
+  .product-overview-section,
+  .use-cases-section,
+  .vostco-marketplace-section,
+  .team-section,
+  .contact-section,
+  .video-section,
+  .vocal-ai-training-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   /* Navbar Mobile Styles */
   .navbar {
     padding: 0.5rem 1rem;
@@ -1962,8 +2008,8 @@ select.signup-form {
 
   .product-overview-row {
     flex-direction: column;
-    gap: 2rem;
-    padding: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .product-overview-row.reverse {
@@ -1976,22 +2022,25 @@ select.signup-form {
 
   .product-overview-image {
     width: 100%;
-    height: auto;
-    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
   }
 
   .product-overview-info {
     width: 100%;
-    padding: 0;
+    text-align: center;
+    padding: 0 1rem;
   }
 
   .product-overview-name {
     font-size: 1.5rem;
+    margin-bottom: 0.8rem;
   }
 
   .product-overview-desc {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.5;
+    margin-bottom: 1.2rem;
   }
 
   /* Use Cases Section Mobile Styles */
@@ -2133,5 +2182,27 @@ select.signup-form {
 
   .navbar-action {
     display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .login-section {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
